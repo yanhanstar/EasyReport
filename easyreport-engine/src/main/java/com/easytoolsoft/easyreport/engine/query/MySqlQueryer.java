@@ -23,6 +23,6 @@ public class MySqlQueryer extends AbstractQueryer implements Queryer {
         if (matcher.find()) {
             sqlText = matcher.replaceFirst("");
         }
-        return sqlText + " limit 1";
+        return sqlText;
     }
 }
