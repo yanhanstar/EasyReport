@@ -252,20 +252,3 @@ CREATE TABLE IF NOT EXISTS `ezrpt_sys_event` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for fact_air_cn
--- ----------------------------
-CREATE TABLE IF NOT EXISTS `fact_air_cn` (
-  `area` varchar(20) NOT NULL,
-  `dt` date NOT NULL,
-  `aqi` int(11) NOT NULL,
-  `aqi_range` varchar(20) NOT NULL,
-  `quality` varchar(10) NOT NULL,
-  `pm25` float NOT NULL,
-  `pm10` float NOT NULL,
-  `so2` float NOT NULL,
-  `co` float NOT NULL,
-  `no2` float NOT NULL,
-  `o3` float NOT NULL,
-  PRIMARY KEY (`area`,`dt`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;

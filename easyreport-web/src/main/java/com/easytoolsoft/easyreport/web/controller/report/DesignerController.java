@@ -110,7 +110,7 @@ public class DesignerController
         po.setGmtCreated(new Date());
         String opt = po.getOptions();
         JSONObject optJs = JSONObject.parseObject(opt);
-        optJs.put("layout", LayoutType.HORIZONTAL.getValue());
+        optJs.put("layout", LayoutType.VERTICAL.getValue());
         po.setOptions(optJs.toJSONString());
 
         this.service.add(po);
@@ -124,7 +124,7 @@ public class DesignerController
     public ResponseResult edit(@CurrentUser final User loginUser, final Report po) {
         String opt = po.getOptions();
         JSONObject optJs = JSONObject.parseObject(opt);
-        optJs.put("layout", LayoutType.HORIZONTAL.getValue());
+        optJs.put("layout", LayoutType.VERTICAL.getValue());
         po.setOptions(optJs.toJSONString());
 
         this.service.editById(po);
