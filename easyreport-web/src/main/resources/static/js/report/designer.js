@@ -209,7 +209,7 @@ var DesignerMVC = {
                 }, {
                     field: 'name',
                     title: '名称',
-                    width: 150,
+                    width: 200,
                     sortable: true
                 }, {
                     field: 'dsName',
@@ -227,7 +227,7 @@ var DesignerMVC = {
                 }, {
                     field: 'createUser',
                     title: '创建者',
-                    width: 100,
+                    width: 50,
                     sortable: true
                 }, {
                     field: 'comment',
