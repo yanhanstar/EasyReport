@@ -165,7 +165,8 @@ public class ReportController {
     public void exportToExcel(final String uid, final String name, final String htmlText,
                               final HttpServletRequest request, final HttpServletResponse response) {
         try {
-            ReportUtils.exportToExcel(uid, name, htmlText, request, response);
+//          ReportUtils.exportToExcel(uid, name, htmlText, request, response);
+            ReportUtils.exportToExcelNew(uid, name, request, response);
         } catch (final Exception ex) {
             log.error("导出Excel失败", ex);
         }

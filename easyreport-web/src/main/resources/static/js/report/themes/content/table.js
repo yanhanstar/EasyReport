@@ -77,7 +77,7 @@ var TableReportMVC = {
                 }
             });
         },
-        exportToExcel: function (e) {
+        exportToExcelold: function (e) {
             var htmlText = '';
             htmlText += (TableReportMVC.Util.filterTable || '');
             htmlText += '<table>' + $('#easyreport').html() + '</table>';
@@ -90,6 +90,25 @@ var TableReportMVC = {
             var url = TableReportMVC.URLs.exportExcel.url;
             var data = $('#table-report-form').serializeObject();
             data["htmlText"] = htmlText;
+
+            $.messager.progress({
+                title: '请稍后...',
+                text: '报表正在生成中...',
+            });
+            $.fileDownload(url, {
+                httpMethod: "POST",
+                data: data
+            }).done(function () {
+                $.messager.progress("close");
+            }).fail(function () {
+                $.messager.progress("close");
+            });
+            e.preventDefault();
+        },
+        exportToExcel: function (e) {
+            //2018-10-29 改写导出部分代码
+            var url = TableReportMVC.URLs.exportExcel.url;
+            var data = $('#table-report-form').serializeObject();
 
             $.messager.progress({
                 title: '请稍后...',

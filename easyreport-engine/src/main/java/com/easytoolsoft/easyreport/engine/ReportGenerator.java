@@ -21,7 +21,8 @@ public class ReportGenerator {
      * @return ReportTable
      */
     public static ReportTable generate(final ReportDataSource ds, final ReportParameter parameter) {
-        return generate(getDataSet(ds, parameter), parameter);
+        AbstractReportDataSet dataSet = getDataSet(ds, parameter);
+        return generate(dataSet, parameter);
     }
 
     /**
