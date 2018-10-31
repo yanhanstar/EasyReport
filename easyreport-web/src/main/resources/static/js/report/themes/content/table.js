@@ -88,7 +88,7 @@ var TableReportMVC = {
             }
 
             var url = TableReportMVC.URLs.exportExcel.url;
-            var data = $('#table-report-form').serializeObject();
+            var data = $('#table-report-form').serialize();
             data["htmlText"] = htmlText;
 
             $.messager.progress({
@@ -108,7 +108,7 @@ var TableReportMVC = {
         exportToExcel: function (e) {
             //2018-10-29 改写导出部分代码
             var url = TableReportMVC.URLs.exportExcel.url;
-            var data = $('#table-report-form').serializeObject();
+            var data = $('#table-report-form').serialize();
 
             $.messager.progress({
                 title: '请稍后...',

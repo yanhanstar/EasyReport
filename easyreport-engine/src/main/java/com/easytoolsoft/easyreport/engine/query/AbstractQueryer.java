@@ -109,10 +109,13 @@ public abstract class AbstractQueryer {
         ResultSet rs = null;
 
         try {
+            long startTime = System.currentTimeMillis();
             this.logger.debug(this.parameter.getSqlText());
             conn = this.getJdbcConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery(this.preprocessSqlText(this.parameter.getSqlText()));
+            long endTime = System.currentTimeMillis();
+            this.logger.debug("Time consuming: "+(endTime-startTime)+"ms");
             return this.getMetaDataRows(rs, this.getSqlColumns(this.parameter.getMetaColumns()));
         } catch (final Exception ex) {
             this.logger.error(String.format("SqlText:%s，Msg:%s", this.parameter.getSqlText(), ex));
