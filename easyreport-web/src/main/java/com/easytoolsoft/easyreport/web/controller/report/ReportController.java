@@ -27,12 +27,9 @@ import com.easytoolsoft.easyreport.web.util.ReportUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -42,7 +39,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @date 2017-03-25
  */
 @Slf4j
-@Controller
+@RestController
 @RequestMapping(value = "/report")
 public class ReportController {
     @Resource
@@ -54,7 +51,7 @@ public class ReportController {
 
     @OpLog(name = "预览报表")
     @GetMapping(value = {"/uid/{uid}"})
-    //@RequiresPermissions("report.designer:preview")
+    @RequiresPermissions("report.designer:preview")
     public ModelAndView preview(@PathVariable final String uid) {
         final ModelAndView modelAndView = new ModelAndView("report/display");
         modelAndView.addObject("report", ReportUtils.getReportMetaData(uid));
@@ -63,7 +60,7 @@ public class ReportController {
 
     @OpLog(name = "预览报表")
     @RequestMapping(value = {"/{type}/uid/{uid}"})
-    //@RequiresPermissions("report.designer:preview")
+    @RequiresPermissions("report.designer:preview")
     public ModelAndView preview(@PathVariable final String type, @PathVariable final String uid,
                                 final String theme, final Boolean isRenderByForm, final String uiStyle,
                                 final HttpServletRequest request) {
@@ -92,7 +89,7 @@ public class ReportController {
     @OpLog(name = "获取报表DataSet JSON格式数据")
     @ResponseBody
     @RequestMapping(value = "/getDataSet.json")
-    //@RequiresPermissions("report.designer:preview")
+    @RequiresPermissions("report.designer:preview")
     public ResponseResult getDataSet(final String uid, final HttpServletRequest request) {
         ResponseResult result;
         try {
@@ -114,7 +111,7 @@ public class ReportController {
     @OpLog(name = "获取表格报表JSON格式数据")
     @ResponseBody
     @PostMapping(value = "/table/getData.json")
-    //@RequiresPermissions("report.designer:preview")
+    @RequiresPermissions("report.designer:preview")
     public JSONObject getTableData(final String uid, final HttpServletRequest request) {
         final JSONObject data = new JSONObject();
         try {
@@ -133,7 +130,7 @@ public class ReportController {
     @OpLog(name = "获取图表报表JSON格式数据")
     @ResponseBody
     @PostMapping(value = "/chart/getData.json")
-    //@RequiresPermissions("report.designer:preview")
+    @RequiresPermissions("report.designer:preview")
     public JSONObject getChartData(final String uid, final HttpServletRequest request) {
         final JSONObject data = ReportUtils.getDefaultChartData();
         if (StringUtils.isNotBlank(uid)) {
@@ -161,7 +158,7 @@ public class ReportController {
 
     @PostMapping(value = "/table/exportExcel")
     @OpLog(name = "导出报表为Excel")
-    //@RequiresPermissions("report.designer:export")
+    @RequiresPermissions("report.designer:export")
     public void exportToExcel(final String uid, final String name, final String htmlText,
                               final HttpServletRequest request, final HttpServletResponse response) {
         try {

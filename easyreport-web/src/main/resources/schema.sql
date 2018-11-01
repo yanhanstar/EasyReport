@@ -252,3 +252,29 @@ CREATE TABLE IF NOT EXISTS `ezrpt_sys_event` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of ezrpt_sys_event
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for ezrpt_sys_event
+-- ----------------------------
+CREATE TABLE IF NOT EXISTS `ezrpt_sys_report_event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '日志标识',
+  `source` varchar(100) NOT NULL COMMENT '日志来源',
+  `report_id` varchar(100) NOT NULL COMMENT '报表ID',
+  `report_name` varchar(100) NOT NULL COMMENT '报表名称',
+  `user_id` int(11) NOT NULL COMMENT '操作用户id',
+  `user_name` int(11) NOT NULL COMMENT '操作用户名称',
+  `account` varchar(50) NOT NULL COMMENT '操作用户账号',
+  `level` varchar(10) NOT NULL COMMENT '日志级别',
+  `message` text NOT NULL COMMENT '日志信息',
+  `url` varchar(255) NOT NULL COMMENT 'url',
+  `gmt_created` timestamp NOT NULL DEFAULT '1980-01-01 01:01:01' COMMENT '日志发生的时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ezrpt_sys_event
+-- ----------------------------
+

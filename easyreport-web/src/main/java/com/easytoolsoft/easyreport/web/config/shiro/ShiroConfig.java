@@ -61,6 +61,7 @@ public class ShiroConfig {
         chains.put("/home/**", this.configProperties.getShiro().getFilters());
         chains.put("/views/**", this.configProperties.getShiro().getFilters());
         chains.put("/rest/**", this.configProperties.getShiro().getFilters());
+        chains.put("/report/table/**", this.configProperties.getShiro().getFilters());
         chains.put("/**", "anon");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(chains);
 
