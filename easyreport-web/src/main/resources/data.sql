@@ -10,6 +10,7 @@ MERGE INTO `ezrpt_member_module` VALUES ('23', '7', '用户管理', 'membership.
 MERGE INTO `ezrpt_member_module` VALUES ('24', '7', '角色管理', 'membership.role', 'icon-group', 'views/member/role', '7,24', '0', '0', '', '', '2', '1', '角色管理', '2014-10-30 07:38:44', '2015-12-17 18:13:57');
 MERGE INTO `ezrpt_member_module` VALUES ('25', '7', '权限管理', 'membership.permission', 'icon-perm', 'views/member/permission', '7,25', '0', '0', '', '', '3', '1', '操作管理', '2014-10-30 07:39:03', '2015-12-17 18:13:57');
 MERGE INTO `ezrpt_member_module` VALUES ('26', '32', '系统日志', 'membership.event', 'icon-event', 'views/member/event', '32,26', '0', '0', '', '', '3', '1', '系统日志', '2014-10-30 07:41:06', '2015-12-17 18:13:57');
+MERGE INTO `ezrpt_member_module` VALUES ('27', '32', '报表日志', 'membership.reportevent', 'icon-logs', 'views/member/reportevent', '32,27', '0', '0', '', '', '4', '1', '报表日志', '2014-10-30 07:41:06', '2015-12-17 18:13:57');
 MERGE INTO `ezrpt_member_module` VALUES ('31', '7', '模块管理', 'membership.module', 'icon-org', 'views/member/module', '7,31', '0', '0', '', '', '4', '1', '模块管理', '2014-10-31 02:21:46', '2015-12-17 18:13:57');
 MERGE INTO `ezrpt_member_module` VALUES ('32', '0', '系统管理', 'sys', 'icon-settings4', 'views/sys/conf', '32', '1', '0', '', '', '5', '1', '系统管理', '2014-11-12 04:20:57', '2015-12-17 18:13:28');
 MERGE INTO `ezrpt_member_module` VALUES ('39', '32', '系统配置', 'sys.conf', 'icon-settings2', 'views/sys/conf', '32,39', '0', '0', ' ', ' ', '2', '0', '系统配置', '2015-08-08 02:48:03', '2015-12-17 18:13:57');
@@ -33,11 +34,13 @@ MERGE INTO `ezrpt_member_permission` VALUES ('14', '31', '管理', 'membership.m
 MERGE INTO `ezrpt_member_permission` VALUES ('15', '31', '编辑模块', 'membership.module.edit', '2', '编辑', '2014-10-31 02:29:17', '2014-10-31 02:28:20');
 MERGE INTO `ezrpt_member_permission` VALUES ('16', '31', '删除模块', 'membership.module.remove', '3', '删除', '2014-10-31 02:29:38', '2014-10-31 02:28:42');
 MERGE INTO `ezrpt_member_permission` VALUES ('18', '26', '查看日志', 'membership.event:view', '1', '查看', '2014-10-31 02:31:08', '2014-10-31 02:30:11');
+MERGE INTO `ezrpt_member_permission` VALUES ('19', '27', '查看日志', 'membership.reportevent:view', '1', '查看', '2014-10-31 02:31:08', '2014-10-31 02:30:11');
 MERGE INTO `ezrpt_member_permission` VALUES ('20', '23', '添加用户', 'membership.user:add', '1', '添加', '2014-10-31 10:29:22', '2014-10-31 10:28:26');
 MERGE INTO `ezrpt_member_permission` VALUES ('21', '2', '查看', 'dashboard:view', '1', '查看仪表盘图表', '2014-11-12 03:01:11', '2014-11-12 03:01:11');
 MERGE INTO `ezrpt_member_permission` VALUES ('37', '23', '管理', 'membership.user:*', '1', '用户管理', '2014-11-12 03:26:41', '2014-11-12 03:26:41');
 MERGE INTO `ezrpt_member_permission` VALUES ('38', '24', '管理', 'membership.role:*', '1', '角色管理', '2014-11-12 03:27:49', '2014-11-12 03:27:49');
 MERGE INTO `ezrpt_member_permission` VALUES ('58', '26', '日志管理', 'membership.event:*', '2', '日志管理', '2014-11-27 07:51:02', '2014-11-27 07:51:04');
+MERGE INTO `ezrpt_member_permission` VALUES ('57', '27', '报表日志管理', 'membership.reportevent:*', '2', '报表日志管理', '2014-11-27 07:51:02', '2014-11-27 07:51:04');
 MERGE INTO `ezrpt_member_permission` VALUES ('59', '3', '删除数据源', 'report.ds:delete', '1', '删除数据源', '2015-06-23 06:55:58', '2015-06-23 06:55:58');
 MERGE INTO `ezrpt_member_permission` VALUES ('60', '3', '创建数据源', 'report.ds:add', '2', '创建数据源', '2015-06-23 06:56:18', '2015-06-23 06:56:18');
 MERGE INTO `ezrpt_member_permission` VALUES ('61', '3', '修改数据源', 'report.ds:update', '3', '修改数据源', '2015-06-23 06:56:37', '2015-06-23 06:56:37');
@@ -60,7 +63,7 @@ MERGE INTO `ezrpt_member_permission` VALUES ('79', '4', '导出', 'report.design
 -- ----------------------------
 -- Records of ezrpt_member_role
 -- ----------------------------
-MERGE INTO `ezrpt_member_role` VALUES ('4', '39,38,42,41,40,23,24,25,26,3,7,32,31,4', '76,75,67,66,77,64,65,74,73,72,59,60,61,62,63,69,37,20,2,4,5,38,9,8,7,6,10,14,15,16,71,70,18,58', '超级管理员', 'superAdmin', '1', '1', '1', '管理员', 'admin', '2014-10-31 14:38:09', '2015-12-18 01:48:00');
+MERGE INTO `ezrpt_member_role` VALUES ('4', '39,38,42,41,40,23,24,25,26,27,3,7,32,31,4', '76,75,67,66,77,64,65,74,73,72,59,60,61,62,63,69,37,20,2,4,5,38,9,8,7,6,10,14,15,16,71,70,18,58,57', '超级管理员', 'superAdmin', '1', '1', '1', '管理员', 'admin', '2014-10-31 14:38:09', '2015-12-18 01:48:00');
 MERGE INTO `ezrpt_member_role` VALUES ('22', '39,38,42,41,40,23,24,25,26,3,7,32,31,4', '76,75,67,66,77,64,65,74,73,72,59,60,61,62,63,69,37,20,2,4,5,38,9,8,7,6,10,14,15,16,71,70,18,58', '开发人员', 'developer', '1', '1', '2', '开发人员', 'admin', '2014-11-15 12:56:56', '2015-12-18 01:47:45');
 MERGE INTO `ezrpt_member_role` VALUES ('23', '3,4,40,41,42,54', '59,60,61,62,63,65,66,67,69,64,75,77,72,73,74', '测试人员', 'test', '1', '1', '10', '测试人员', 'admin', '2015-12-17 21:35:50', '2015-12-20 18:05:27');
 

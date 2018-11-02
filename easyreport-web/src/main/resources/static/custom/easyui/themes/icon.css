@@ -34,6 +34,10 @@
     background: url('icons/event.png') no-repeat center center;
 }
 
+.icon-logs {
+    background: url('icons/logs.png') no-repeat center center;
+}
+
 .icon-org {
     background: url('icons/org.png') no-repeat center center;
 }

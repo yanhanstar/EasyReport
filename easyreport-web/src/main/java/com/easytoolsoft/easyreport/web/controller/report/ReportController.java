@@ -22,6 +22,7 @@ import com.easytoolsoft.easyreport.meta.service.ChartReportService;
 import com.easytoolsoft.easyreport.meta.service.ReportService;
 import com.easytoolsoft.easyreport.meta.service.TableReportService;
 import com.easytoolsoft.easyreport.support.annotation.OpLog;
+import com.easytoolsoft.easyreport.support.annotation.ReportLog;
 import com.easytoolsoft.easyreport.support.model.ResponseResult;
 import com.easytoolsoft.easyreport.web.util.ReportUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -108,7 +109,7 @@ public class ReportController {
         return result;
     }
 
-    @OpLog(name = "获取表格报表JSON格式数据")
+    @ReportLog(name = "查询报表")
     @ResponseBody
     @PostMapping(value = "/table/getData.json")
     @RequiresPermissions("report.designer:preview")
@@ -157,7 +158,7 @@ public class ReportController {
     }
 
     @PostMapping(value = "/table/exportExcel")
-    @OpLog(name = "导出报表为Excel")
+    @ReportLog(name = "导出报表")
     @RequiresPermissions("report.designer:export")
     public void exportToExcel(final String uid, final String name, final String htmlText,
                               final HttpServletRequest request, final HttpServletResponse response) {
